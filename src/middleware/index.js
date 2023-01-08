@@ -3,9 +3,9 @@ import { isAuthorized } from "./authorization.js";
 
 export const permissions = shield({
   Query: {
-    hello: isAuthorized
+    hello: isAuthorized,
   },
   Mutation: {
-   
+   updateNickname: isAuthorized
   } 
 })

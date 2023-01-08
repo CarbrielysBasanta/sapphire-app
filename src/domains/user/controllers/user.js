@@ -17,7 +17,6 @@ userController.saveUser = async (data) => {
       res.token = signToken({ userId: res._id })
       return res
     })
-
 }
 
 userController.login = async (data) => {
@@ -29,6 +28,10 @@ userController.login = async (data) => {
   if (!isValid) throw "invalid-password"
   user.token = signToken({ userId: user._id })
   return user
+}
+
+userController.updateNickname = async (nickname) => {
+  return nickname
 }
 
 export default userController

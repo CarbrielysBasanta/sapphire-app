@@ -50,6 +50,7 @@ type Query {
 
 type Mutation {
   saveUser(data: userInput): User
+  updateNickname(nickname: String): String
 
 }
 `

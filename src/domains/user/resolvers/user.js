@@ -1,9 +1,10 @@
-import { isAuthorized } from "../../../middleware/authorization.js"
 import userController from "../controllers/user.js"
 
 const resolvers = {
   Query: {
-    hello: isAuthorized,
+    hello: () => {
+      return userController.sayHello()
+    },
     login: (root, {data}, context) => {
       return userController.login(data)
     }
@@ -11,6 +12,10 @@ const resolvers = {
   Mutation: {
     saveUser: (root, {data}, context) => {
       return userController.saveUser(data)
+    },
+    updateNickname: (root, {nickname}, context) => {
+      // console.log(context);
+      return userController.updateNickname(nickname)
     }
   }
 }
