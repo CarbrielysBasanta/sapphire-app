@@ -24,7 +24,7 @@ async function init() {
 
   const graphqlPath = '/graphql'
 
-  await initMongo()
+  // await initMongo()
 
   await apolloServer.start()
   apolloServer.applyMiddleware({app})
