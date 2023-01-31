@@ -1,64 +1,111 @@
 import mongoose from "mongoose";
 
-//Social media schema
-const socialMediaSchema = new mongoose.Schema({
-  facebook: {
+const levelSchema = new mongoose.Schema({
+  educational: {
     type: String,
-    required: false,
+    default: ""
+  },
+  technological: {
+    type: String,
+    default: ""
+  },
+  medicinal: {
+    type: String,
+    default: ""
+  }
+})
+
+const territoriesSchema = new mongoose.Schema({
+  territoryName: {
+    type: String,
+    default: ""
+  },
+  territoryType: {
+    type: String,
+    default: ""
+  },
+  territoryId: {
+    type: String,
+    default: ""
+  }
+})
+
+const ethnicitySchema = new mongoose.Schema({
+  ethnicityName: {
+    type: String,
+    default: ""
+  },
+  ethnicityAbility: {
+    type: String,
+    default: ""
+  },
+  isMagical: {
+    type: Boolean,
+    default: ""
+  },
+  typeOfMagic: {
+    type: String,
     default: ""
   }
 })
 
 //Principal schema
-const userSchema = new mongoose.Schema({
-  firstName: {
+const worldSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
-  lastName: {
+  peopleName: {
     type: String,
     required: true
   },
-  nickName: {
+  type: {
     type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: false,
     default: ""
   },
-  email: {
+  epoch: {
     type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  dateOfBorn: {
-    type: Date,
-    required: false,
     default: ""
   },
-  location: {
+  government: {
     type: String,
-    required: false,
     default: ""
   },
-  genere: {
+  leader: {
     type: String,
-    required: false,
     default: ""
   },
-  socialMedia: {
-    type: socialMediaSchema,
+  economy: {
+    type: String,
+    default: ""
+  },
+  history: {
+    type: String,
+    default: ""
+  },
+  fauna: {
+    type: String,
+    default: ""
+  },
+  flora: {
+    type: String,
+    default: ""
+  },
+  weather: {
+    type: String,
+    default: ""
+  },
+  level: {
+    type: levelSchema,
     default: {}
   },
-  lastConnection: {
-    type: Date,
-    required: false,
-    default: ""
+  associatedTerritories: {
+    type: territoriesSchema,
+    default: []
+  },
+  ethnicity: {
+    type: ethnicitySchema,
+    default: {}
   }
 }, {
   timestamps: true
