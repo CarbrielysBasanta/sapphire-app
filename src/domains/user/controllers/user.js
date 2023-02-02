@@ -26,7 +26,10 @@ userController.login = async (data) => {
     })
   const isValid = await verifyPassword(user.password, data.password)
   if (!isValid) throw "invalid-password"
-  user.token = signToken({ userId: user._id })
+  user.token = signToken({ 
+    userId: user._id,
+    role: user.role
+  })
   return user
 }
 

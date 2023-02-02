@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+const roleEnum = [
+  'User',
+  'Admin'
+]
+
 //Social media schema
 const socialMediaSchema = new mongoose.Schema({
   facebook: {
@@ -35,6 +40,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  role: {
+    type: String,
+    required: true,
+    default: 'User',
+    enum: roleEnum
   },
   dateOfBorn: {
     type: Date,

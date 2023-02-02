@@ -10,6 +10,7 @@ const userData = `
   dateOfBorn: Date
   location: String
   genere: String
+  role: String
 `
 
 

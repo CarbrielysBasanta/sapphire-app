@@ -14,7 +14,6 @@ const resolvers = {
       return userController.saveUser(data)
     },
     updateNickname: (root, {nickname}, context) => {
-      // console.log(context);
       return userController.updateNickname(nickname)
     }
   }

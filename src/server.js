@@ -18,13 +18,13 @@ async function init() {
     context: ({ req, reply }) => {
       return req.headers
     },
-    introspection: false,
+    introspection: true,
     playground: true
   })
 
   const graphqlPath = '/graphql'
 
-  // await initMongo()
+  await initMongo()
 
   await apolloServer.start()
   apolloServer.applyMiddleware({app})
