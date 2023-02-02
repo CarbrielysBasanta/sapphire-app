@@ -2,9 +2,6 @@ import userController from "../controllers/user.js"
 
 const resolvers = {
   Query: {
-    hello: () => {
-      return userController.sayHello()
-    },
     login: (root, {data}, context) => {
       return userController.login(data)
     }
@@ -15,6 +12,9 @@ const resolvers = {
     },
     updateNickname: (root, {nickname}, context) => {
       return userController.updateNickname(nickname)
+    },
+    updateUser: (root, {data}, context) => {
+      return userController.updateUser(data)
     }
   }
 }

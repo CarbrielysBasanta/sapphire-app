@@ -16,17 +16,14 @@ const socialMediaSchema = new mongoose.Schema({
 
 //Principal schema
 const userSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
+  fullName: {
     type: String,
     required: true
   },
   nickName: {
     type: String,
-    required: true
+    required: false,
+    default: ""
   },
   description: {
     type: String,

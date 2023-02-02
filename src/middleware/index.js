@@ -1,11 +1,15 @@
-import { shield } from "graphql-shield";
-import { isAuthorized, isUser } from "./authorization.js";
+import { and, shield } from "graphql-shield";
+import { isAdmin, isAuthorized, isUser } from "./authorization.js";
 
 export const permissions = shield({
   Query: {
-    hello: isAuthorized,
+    getUser: and(isAuthorized, isUser),
+    getAllUsers: and(isAuthorized, isAdmin),
+    
   },
   Mutation: {
-   updateNickname: isUser
+   updateNickname: and(isAuthorized, isUser),
+   updateUser: and(isAuthorized, isUser),
+   deleteUser: and(isAuthorized, isUser),
   } 
 })

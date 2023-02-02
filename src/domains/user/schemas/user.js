@@ -1,12 +1,11 @@
 import { gql } from "apollo-server-express"
 
 const userData = `
-  firstName: String!
-  lastName: String!
+  fullName: String
   nickName: String
   description: String
-  email: String!
-  password: String!
+  email: String
+  password: String
   dateOfBorn: Date
   location: String
   genere: String
@@ -45,14 +44,16 @@ input loginInput {
 
 #--------------QUERIES AND MUTATIONS--------------
 type Query {
-  hello: String
   login(data: loginInput): User
+  getUser(email: String): User
+  getAllUsers: [User]
 }
 
 type Mutation {
   saveUser(data: userInput): User
   updateNickname(nickname: String): String
-
+  updateUser(data: userInput): User
+  deleteUser(email: String, password: String): String
 }
 `
 export { types }
