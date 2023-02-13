@@ -31,10 +31,15 @@ userController.saveUser = async (data) => {
 
 userController.login = async (data) => {
   try {
-    if (data.nickName == "") throw "the-nickname-can't-be-empty"
+    if (data.nickName == "" && data.email == "") throw "both-field-can't-be-empty"
     if (data.password == "") throw "password-can't-be-empty"
     if (data.password.length < 6) throw "password-can't-less-than-6-characters"
-    const user = await UserModel.findOne({ nickName: data.nickName })
+    const user = await UserModel.findOne({
+      $or: [{
+        nickName: data.nickName
+      },
+      { email: data.email }]
+    })
       .then((data) => {
         return data
       })

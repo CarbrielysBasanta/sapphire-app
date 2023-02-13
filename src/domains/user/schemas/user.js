@@ -38,8 +38,9 @@ input socialMediaInput {
 }
 
 input loginInput {
-  nickName: String!
+  nickName: String
   password: String!
+  email: String
 }
 
 #--------------QUERIES AND MUTATIONS--------------
@@ -51,7 +52,6 @@ type Query {
 
 type Mutation {
   saveUser(data: userInput): User
-  updateNickname(nickname: String): String
   updateUser(data: userInput): User
   deleteUser(email: String, password: String): User
 }

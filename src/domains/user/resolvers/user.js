@@ -10,9 +10,6 @@ const resolvers = {
     saveUser: (root, {data}, context) => {
       return userController.saveUser(data)
     },
-    updateNickname: (root, {nickname}, context) => {
-      return userController.updateNickname(nickname)
-    },
     updateUser: (root, {data}, context) => {
       return userController.updateUser(data)
     },

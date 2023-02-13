@@ -8,7 +8,6 @@ export const permissions = shield({
     
   },
   Mutation: {
-   updateNickname: and(isAuthorized, isUser),
    updateUser: and(isAuthorized, isUser),
    deleteUser: and(isAuthorized, isUser),
   } 
