@@ -15,6 +15,9 @@ const resolvers = {
     },
     updateUser: (root, {data}, context) => {
       return userController.updateUser(data)
+    },
+    deleteUser: (root, {email, password}, context) => {
+      return userController.deleteUser(email, password)
     }
   }
 }

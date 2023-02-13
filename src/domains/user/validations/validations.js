@@ -7,11 +7,11 @@ export const validateData = (data) => {
   try {
     let dataToValidate = [
       {name:"fullName", value: data.fullName, limitString: 30, regex: Alphabetic},
-      {name:"nickName", value: data.nickName, limitString: 30, regex: Alphanumeric},
+      {name:"nickName", value: data.nickName, limitString: 30, regex: AlphanumericAndSpecials},
       {name:"description", value: data.description, limitString: 30, regex: Alphanumeric},
-      {name:"email", value: data.email, limitString: 30, regex: AlphanumericAndSpecials},
+      // {name:"email", value: data.email, limitString: 30, regex: AlphanumericAndSpecials},
       {name:"location", value: data.location, limitString: 30, regex: Alphabetic},
-      {name:"facebook", value: data.facebook, limitString: 30, regex: Alphanumeric}
+      // {name:"facebook", value: data.socialMedia.facebook, limitString: 30, regex: Alphanumeric}
     ]
     for (const field of dataToValidate) {
       if (field.value) {

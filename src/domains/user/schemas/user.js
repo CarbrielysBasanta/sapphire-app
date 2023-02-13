@@ -12,7 +12,6 @@ const userData = `
   role: String
 `
 
-
 const types = gql`
 scalar Date
 #--------------TYPES--------------
@@ -29,6 +28,7 @@ type socialMedia {
 
 #--------------INPUTS--------------
 input userInput {
+  id: ID
   ${userData}
   socialMedia: socialMediaInput
 }
@@ -53,7 +53,7 @@ type Mutation {
   saveUser(data: userInput): User
   updateNickname(nickname: String): String
   updateUser(data: userInput): User
-  deleteUser(email: String, password: String): String
+  deleteUser(email: String, password: String): User
 }
 `
 export { types }
