@@ -1,7 +1,7 @@
 import { signToken } from "../../../utils/auth.js";
 import { hashPassword, verifyPassword } from "../../../utils/verifyPassword.js";
 import UserModel from "../models/user.js";
-import { validateData } from "../validations/validations.js";
+import { validateData } from "../../../validations/validations.js";
 
 const userController = {};
 
@@ -25,7 +25,7 @@ userController.saveUser = async (data) => {
       })
   }
   catch (err) {
-    return err
+    throw err
   }
 }
 
@@ -66,7 +66,8 @@ userController.updateNickname = async (nickname) => {
 userController.updateUser = async (data) => {
   try {
     if (data.email == "") throw "email-can't-be-empty"
-    await validateData(data)
+    const valid = await validateData(data, 'User')
+    if (valid.error) throw `an-error-ocurred: ${valid.msg}` 
     return await UserModel.findById({ _id: data.id })
       .then(user => {
         user.fullName = data.fullName ? data.fullName : user.fullName
@@ -81,17 +82,16 @@ userController.updateUser = async (data) => {
       })
   }
   catch (err) {
-    return err
+    console.log(`Error on updateUser: ${err}`);
+    throw err
   }
 }
 
 userController.deleteUser = async (email, incomingPassword) => {
   try {
-    console.log(email, incomingPassword);
     if (email == "" || incomingPassword == "") throw "some-field-is-be-empty"
     return await UserModel.findOne({ email: email }, { password: 1, email: 1 })
       .then(async (user) => {
-        console.log(user);
         if (!user) throw 'user-not-exist'
         const isValid = await verifyPassword(user.password, incomingPassword)
         if (!isValid) throw "invalid-password"
@@ -111,7 +111,7 @@ userController.deleteUser = async (email, incomingPassword) => {
   }
   catch (err) {
     console.log(`Error on deleteUser: ${err}`);
-    return err
+    throw err
   }
 }
 

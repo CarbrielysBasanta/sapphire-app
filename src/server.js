@@ -6,6 +6,7 @@ import { application } from "./graphql/index.js";
 import { initMongo } from "./config/mongo.js";
 import { applyMiddleware } from "graphql-middleware";
 import { permissions } from "./middleware/index.js";
+import { getCredentials } from "./middleware/authorization.js";
 
 
 async function init() {
@@ -15,7 +16,11 @@ async function init() {
   const apolloServer = new ApolloServer({
     schema: schemaWithPermissions,
     method: 'POST',
-    context: ({ req, reply }) => {
+    context: async ({ req, reply }) => {
+      if (req.headers.authorization) {
+        const user = await getCredentials(req.headers.authorization)
+        req.headers.credentials = user
+      }
       return req.headers
     },
     introspection: true,
@@ -27,7 +32,7 @@ async function init() {
   await initMongo()
 
   await apolloServer.start()
-  apolloServer.applyMiddleware({app})
+  apolloServer.applyMiddleware({ app })
 
   // parse application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: false }))
@@ -40,7 +45,7 @@ async function init() {
     console.log(`🚀 Server ready at http://localhost:${config.PORT}`)
     console.log(`🚀 Apollo Server ready at http://localhost:${config.PORT}${graphqlPath}`)
   })
-  
+
 }
 
 init()

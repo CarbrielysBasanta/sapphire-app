@@ -40,6 +40,10 @@ const locationSchema = new mongoose.Schema({
 
 //Principal schema
 const characterSchema = new mongoose.Schema({
+  authorId: {
+    type: String,
+    required: true
+  },
   names: {
     type: String,
     required: true
