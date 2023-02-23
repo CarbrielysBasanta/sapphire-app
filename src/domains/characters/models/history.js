@@ -26,5 +26,5 @@ const historySchema = new mongoose.Schema({
 })
 
 
-const HistoryModel = mongoose.model('personality', historySchema);
+const HistoryModel = mongoose.model('history', historySchema);
 export default HistoryModel;

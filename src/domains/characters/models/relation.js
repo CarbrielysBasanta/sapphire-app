@@ -41,5 +41,5 @@ const relationSchema = new mongoose.Schema({
 })
 
 
-const RelationSchema = mongoose.model('personality', relationSchema);
-export default RelationSchema;
+const RelationModel = mongoose.model('relation', relationSchema);
+export default RelationModel;
