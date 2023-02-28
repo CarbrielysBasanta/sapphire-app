@@ -42,15 +42,15 @@ const ethnicitySchema = new mongoose.Schema({
   isMagical: {
     type: Boolean,
     default: ""
-  },
-  typeOfMagic: {
-    type: String,
-    default: ""
   }
 })
 
 //Principal schema
 const worldSchema = new mongoose.Schema({
+  authorId: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -100,7 +100,7 @@ const worldSchema = new mongoose.Schema({
     default: {}
   },
   associatedTerritories: {
-    type: territoriesSchema,
+    type: [territoriesSchema],
     default: []
   },
   ethnicity: {

@@ -160,7 +160,7 @@ characterController.getAllCharacters = async (authorId) => {
       })
   }
   catch (err) {
-    console.log(`Error on updateHistory: ${err}`);
+    console.log(`Error on getAllCharacters: ${err}`);
     throw err
   }
 }
@@ -182,6 +182,7 @@ characterController.getOneCharacter = async (characterId, authorId) => {
     })
   }
   catch (err) {
+    console.log(`Error on getOneCharacter: ${err}`);
     return err
   }
 }
@@ -198,6 +199,7 @@ characterController.numberOfCharacters = async (authorId) => {
       })
   }
   catch (err) {
+    console.log(`Error on numberOfCharacters: ${err}`);
     return err
   }
 }

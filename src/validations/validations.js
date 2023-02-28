@@ -86,20 +86,23 @@ export const validateData = (data, origin) => {
       ]
     } else if (origin == 'World') {
       dataToValidate = [
-        { name: "names", value: data.names, limitString: 30, regex: Alphabetic },
-        { name: "lastNames", value: data.lastNames, limitString: 30, regex: Alphabetic },
-        { name: "dateOfBorn", value: data.dateOfBorn, limitString: 30, regex: AlphanumericAndSpecials },
-        { name: "skill", value: data.skill, limitString: 60, regex: AlphanumericAndSpecials },
-        { name: "role", value: data.role, limitString: 30, regex: Alphabetic },
-        { name: "range", value: data.range, limitString: 30, regex: Alphanumeric },
-        { name: "race", value: data.race, limitString: 30, regex: Alphanumeric },
-        { name: "power", value: data.power, limitString: 60, regex: Alphanumeric },
-        { name: "genere", value: data.genere, limitString: 30, regex: Alphanumeric },
-        { name: "age", value: data.age, limitString: 30, regex: Alphanumeric },
-        { name: "eyes", value: data.appearance.eyes, limitString: 30, regex: Alphanumeric },
-        { name: "hair", value: data.appearance.hair, limitString: 60, regex: Alphanumeric },
-        { name: "skin", value: data.appearance.skin, limitString: 30, regex: Alphanumeric },
-        { name: "location", value: data.location, limitString: 30, regex: Alphanumeric },
+        { name: "name", value: data.name, limitString: 30, regex: AlphaAndSpecials },
+        { name: "peopleName", value: data.peopleName, limitString: 30, regex: AlphaAndSpecials },
+        { name: "type", value: data.type, limitString: 30, regex: AlphaAndSpecials },
+        { name: "epoch", value: data.epoch, limitString: 60, regex: AlphaAndSpecials },
+        { name: "goverment", value: data.goverment, limitString: 30, regex: AlphaAndSpecials },
+        { name: "leader", value: data.leader, limitString: 30, regex: AlphaAndSpecials },
+        { name: "economy", value: data.economy, limitString: 30, regex: AlphaAndSpecials },
+        { name: "history", value: data.history, limitString: 60, regex: AlphaAndSpecials },
+        { name: "fauna", value: data.fauna, limitString: 30, regex: AlphaAndSpecials },
+        { name: "flora", value: data.flora, limitString: 30, regex: AlphaAndSpecials },
+        { name: "weather", value: data.weather, limitString: 30, regex: AlphaAndSpecials },
+        { name: "ethnicityName", value: data.ethnicity.ethnicityName, limitString: 60, regex: AlphaAndSpecials },
+        { name: "ethnicityAbility", value: data.ethnicity.ethnicityAbility, limitString: 30, regex: AlphaAndSpecials },
+        { name: "isMagical", value: data.ethnicity.isMagical, limitString: 30, regex: AlphaAndSpecials },
+        { name: "educational", value: data.level.educational, limitString: 30, regex: AlphaAndSpecials },
+        { name: "technological", value: data.level.technological, limitString: 30, regex: AlphaAndSpecials },
+        { name: "medicinal", value: data.level.medicinal, limitString: 30, regex: AlphaAndSpecials },
       ]
     }
 
