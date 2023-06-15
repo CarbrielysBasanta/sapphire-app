@@ -28,8 +28,8 @@ type socialMedia {
 
 #--------------INPUTS--------------
 input userInput {
-  id: ID
   ${userData}
+  repeatPassword: String
   socialMedia: socialMediaInput
 }
 
@@ -48,6 +48,7 @@ type Query {
   login(data: loginInput): User
   getUser(email: String): User
   getAllUsers: [User]
+  hello: String
 }
 
 type Mutation {

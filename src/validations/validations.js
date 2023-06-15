@@ -19,18 +19,17 @@ export const validateData = (data, origin) => {
         // {name:"facebook", value: data.socialMedia.facebook, limitString: 30, regex:  Alphanumeric}
       ]
     } else if (origin == 'Character') {
-      console.log('HERE');
       dataToValidate = [
         { name: "names", value: data.character.names, limitString: 30, regex: AlphaAndSpecials },
         { name: "lastNames", value: data.character.lastNames, limitString: 30, regex: AlphaAndSpecials },
         { name: "dateOfBorn", value: data.character.dateOfBorn, limitString: 30, regex: AlphanumericAndSpecials },
-        { name: "skill", value: data.character.skill, limitString: 30, regex: Alphabetic },
+        { name: "skill", value: data.character.skill, limitString: 100, regex: Alphabetic },
         { name: "role", value: data.character.role, limitString: 30, regex: Alphabetic },
-        { name: "range", value: data.character.range, limitString: 30, regex: Alphabetic },
+        { name: "range", value: data.character.range, limitString: 80, regex: Alphabetic },
         { name: "race", value: data.character.race, limitString: 30, regex: Alphabetic },
-        { name: "power", value: data.character.power, limitString: 60, regex: AlphaAndSpecials },
+        { name: "power", value: data.character.power, limitString: 100, regex: AlphaAndSpecials },
         { name: "genere", value: data.character.genere, limitString: 30, regex: Alphabetic },
-        { name: "age", value: data.character.age, limitString: 30, regex: Numeric },
+        { name: "age", value: data.character.age, limitString: 4, regex: Numeric },
         { name: "eyes", value: data.character.appearance.eyes, limitString: 30, regex: AlphaAndSpecials },
         { name: "hair", value: data.character.appearance.hair, limitString: 60, regex: AlphaAndSpecials },
         { name: "skin", value: data.character.appearance.skin, limitString: 30, regex: AlphaAndSpecials },
